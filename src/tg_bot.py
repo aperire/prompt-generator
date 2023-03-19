@@ -1,5 +1,6 @@
 import os
 import telebot
+import ai
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -9,4 +10,8 @@ bot = telebot.TeleBot(TG_TOKEN)
 
 @bot.message_handler(commands=["gpt"])
 def respond(message):
-    bot.reply_to(message, "hello!")
+    response = ai.process(message.text[5:])
+    bot.reply_to(message, response)
+
+bot.infinity_polling()
+

@@ -281,7 +281,7 @@ def construct_prompt(question: str, context_embeddings: dict, df: pd.DataFrame) 
     print(f"Selected {len(chosen_sections)} document sections:")
     print("\n".join(chosen_sections_indexes))
     
-    header = """Answer the question as truthfully as possible using the provided context. if the answer is not contained within the text below, tell the user 'This might be out of context' and respond to question in a comical way."\n\nContext:\n"""
+    header = """You are zSOL GPT, an AI bot that is an expert of LP Finance. Answer the question as truthfully as possible using the provided context. if the answer is not contained within the text below, respond to the user with the data used to train. Include a joke at the last sentence."\n\nContext:\n"""
     
     return header + "".join(chosen_sections) + "\n\n Q: " + question + "\n A:", eligible_uri
 
